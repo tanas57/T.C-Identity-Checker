@@ -2,7 +2,11 @@
 using System.Net;
 using System.Xml;
 using System;
-
+/*
+	Muhammet Tayyip Muslu
+	muslu.net
+	tayyipmuslu@gmail.com
+*/
 namespace T.C_Dogruluk_Kontrol
 {
     class Identity
@@ -62,6 +66,8 @@ namespace T.C_Dogruluk_Kontrol
                 char[] arr = tc.ToString().ToCharArray();
                 int sumEven = 0, sumOdd = 0, sumFirst10 = 0, i = 0;
 
+                if (arr[0] == '0') return 2; // ilk rakam 0 olamaz
+                
                 while (i <= 8)
                 {
                     int temp = int.Parse(arr[i].ToString());
@@ -71,6 +77,7 @@ namespace T.C_Dogruluk_Kontrol
                     i++;
                 }
                 sumFirst10 += int.Parse(arr[9].ToString());
+                // 10 ve 11. hane kontrolü yapılıyor.
                 if (((sumEven * 9) + (sumOdd * 7)) % 10 == int.Parse(arr[9].ToString()) && (sumFirst10 % 10 == int.Parse(arr[10].ToString())))
                     return 1;
                 else
